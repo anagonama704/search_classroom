@@ -1,38 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Card, Container, Flex, Text, Title } from "@mantine/core";
 
-type test = {
-  id: number;
-  name: string;
-};
-function Home() {
-  const [test, setTest] = useState<test[] | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/books"); // ローカルホストへのリクエストは相対パスで指定可能
-        const data = await response.json();
-        setTest(data);
-      } catch (error) {
-        console.error("Fetch error:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  useEffect(() => {}, [test]);
-
+const Home = () => {
   return (
-    <>
-      {test &&
-        test.map((testman) => (
-          <>
-            <p key={testman.id}>{testman.name}</p>
-          </>
-        ))}
-    </>
+    <Container fluid h="100svh" mah="100svh">
+      <Title></Title>
+    </Container>
   );
-}
+};
 
 export default Home;
